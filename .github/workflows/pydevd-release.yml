@@ -52,6 +52,19 @@ jobs:
           name: dist-${{ matrix.os }}-${{ matrix.python-version }}
           path: dist/*
           
+      - name: Upload to PyPI
+        if: ${{ (matrix.os == 'windows-latest') && (python-versino == '3.9') }}
+        run: |
+            dir dist 
+            echo 'UPLOAD TO PYPI'
+            
+#       - name: Upload to PyPI
+#         working-directory: ./robotframework-ls/src
+#         run: twine upload dist/*.whl
+#         env:
+#           TWINE_USERNAME: __token__
+#           TWINE_PASSWORD: ${{ secrets.TWINE_KEY }}
+          
 #     - name: Run Python 3.x tests
 #       env:
 #         # QT_DEBUG_PLUGINS: 1

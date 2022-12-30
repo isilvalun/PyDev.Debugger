@@ -134,8 +134,8 @@ def build():
             else:
                 raise AssertionError('Unable to setup environment for Python: %s' % (sys.version,))
 
-        env['MSSdk'] = '1'
-        env['DISTUTILS_USE_SDK'] = '1'
+            env['MSSdk'] = '1'
+            env['DISTUTILS_USE_SDK'] = '1'
 
     additional_args = []
     for arg in sys.argv:

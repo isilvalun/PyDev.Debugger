@@ -53,7 +53,7 @@ jobs:
           path: dist/*
           
       - name: Upload to PyPI
-        if: ${{ (matrix.os == 'windows-latest') && (python-version == '3.9') }}
+        if: ${{ (matrix.os == 'windows-latest') && (matrix.python-version == '3.9') }}
         run: |
             dir dist 
             echo 'UPLOAD TO PYPI'

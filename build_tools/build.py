@@ -111,11 +111,16 @@ def build():
             else:
                 import setuptools  # We have to import it first for the compiler to be found
                 from distutils import msvc9compiler
-                
+
                 vcvarsall = msvc9compiler.find_vcvarsall(14.0)
                 if vcvarsall is None or not os.path.exists(vcvarsall):
+                    msvc_version = msvc9compiler.get_build_version()
+                    print('msvc_version', msvc_version)
+                    vcvarsall = msvc9compiler.find_vcvarsall(msvc_version)
+
+                if vcvarsall is None or not os.path.exists(vcvarsall):
                     raise RuntimeError('Error finding vcvarsall.')
-                
+
                 if is_python_64bit():
                     env.update(get_environment_from_batch_command(
                         [vcvarsall, 'amd64'],

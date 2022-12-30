@@ -46,6 +46,11 @@ jobs:
         
       - name: Create sdist
         run: python setup.py sdist bdist_wheel
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist-contents
+          path: dist/*
           
 #     - name: Run Python 3.x tests
 #       env:

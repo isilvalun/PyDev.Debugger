@@ -29,16 +29,14 @@ jobs:
           pip install --upgrade pip
           pip install wheel cython psutil twine --no-warn-script-location
       - name: Check cython unchanged
-        if: contains(matrix.name, 'checkbin')
         env:
           PYTHONPATH: .
         run: |
           python build_tools/build.py
           python build_tools/check_no_git_modifications.py
-#     - name: Create cython binaries
-#       if: contains(matrix.name, 'cython')
-#       run: |
-#         python setup.py sdist bdist_wheel
+      - name: Create cython binaries
+        run: |
+          python setup.py sdist bdist_wheel
 #     - name: Run Python 3.x tests
 #       env:
 #         # QT_DEBUG_PLUGINS: 1

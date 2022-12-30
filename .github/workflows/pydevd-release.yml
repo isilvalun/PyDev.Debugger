@@ -49,7 +49,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: dist-${{ matrix.name }}
+          name: dist-${{ matrix.os }}-${{ matrix.python-version }}
           path: dist/*
           
 #     - name: Run Python 3.x tests

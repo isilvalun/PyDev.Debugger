@@ -32,7 +32,7 @@ jobs:
           pip install --upgrade pip
           pip install wheel cython psutil twine --no-warn-script-location
           
-      - name: Check cython unchanged
+      - name: Build cython
         env:
           PYTHONPATH: .
           PYDEVD_USE_CYTHON: yes
@@ -44,7 +44,7 @@ jobs:
           PYDEVD_USE_CYTHON: yes
         run: python build_tools/check_no_git_modifications.py
         
-      - name: Create cython binaries
+      - name: Create sdist
         run: python setup.py sdist bdist_wheel
           
 #     - name: Run Python 3.x tests

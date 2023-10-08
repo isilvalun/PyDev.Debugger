@@ -1,11 +1,11 @@
 name: PyDev.Debugger Release
 
-on:
-  push:
-    branches:
-      - "release-pydev-debugger-test"
-    tags:
-      - "pydev_debugger_*"
+# on:
+#   push:
+#     branches:
+#       - "release-pydev-debugger-test"
+#     tags:
+#       - "pydev_debugger_*"
 env:
     DISPLAY: ":99"
 

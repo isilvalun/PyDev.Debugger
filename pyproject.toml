@@ -2,7 +2,7 @@
 
 [tool.cibuildwheel]
 # Customize what to build
-# build="cp36-manylinux_x86_64"
+build="cp36-manylinux_x86_64"
 
 before-build = """
 pydevd_attach_to_process/linux_and_mac/compile_linux.sh
